@@ -13,17 +13,17 @@ const BlogDetail: NextPage<Props> = props => {
   return (
     <>
       <Head>
-        <title>ブログ詳細</title>
+        <title>{props.blog.title}</title>
       </Head>
-      <h1 className="title">ブログ詳細</h1>
-      <Link href="/blogs">
-        <a className="link">ブログトップへ</a>
-      </Link>
+      <h1 className="title">{props.blog.title}</h1>
+      <p>{props.blog.createdAt}</p>
       <div className="item">
-        <h2 className="item__title">{props.blog.title}</h2>
         <p className="item__label">{props.blog.label}</p>
         <p className="item__description">{props.blog.description}</p>
       </div>
+        <Link href="/blogs">
+            <a className="link">ブログトップへ</a>
+        </Link>
     </>
   );
 };

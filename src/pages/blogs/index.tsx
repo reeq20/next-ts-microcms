@@ -14,7 +14,7 @@ const BlogHome: NextPage<Props> = ({ blogs }) => (
       <title>blogs</title>
     </Head>
 
-    <h1 className="title">ブログトップ</h1>
+    <h1 className="title">Blogs</h1>
     <Link href="/">
       <a className="link">ホームへ</a>
     </Link>
