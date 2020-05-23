@@ -13,10 +13,9 @@ const BlogDetail: NextPage<Props> = props => {
   return (
     <>
       <Head>
-        <title>{props.blog.title}</title>
+        <title>{props.blog.title} | BLOGS</title>
       </Head>
       <h1 className="title">{props.blog.title}</h1>
-      <p>{props.blog.createdAt}</p>
       <div className="item">
         <p className="item__label">{props.blog.label}</p>
         <p className="item__description">{props.blog.description}</p>
