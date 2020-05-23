@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "API_KEY": "@api_key",
+      "END_POINT": "@microcms_endpoint"
+    }
+  }
+}
