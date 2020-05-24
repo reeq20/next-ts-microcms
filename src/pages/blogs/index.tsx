@@ -22,7 +22,11 @@ const BlogHome: NextPage<Props> = ({ blogs }) => (
       {blogs.map((blog, index) => (
         <div className="item" key={index}>
           <h2 className="item__title">{blog.title}</h2>
-          <p className="item__label">{blog.label}</p>
+          <ul className="item__label">
+            {blog.label.split(",").map((item, index) => (
+              <li key="{index}">{item}</li>
+            ))}
+          </ul>
           <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
             <a className="item__link">詳細へ</a>
           </Link>

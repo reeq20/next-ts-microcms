@@ -3,10 +3,18 @@ import Head from "next/head";
 import axios from "axios";
 import Link from "next/link";
 import { Blogs } from "../../interfaces";
+import React from "react";
 
 interface Props {
   blog: Blogs;
   errors?: string;
+}
+
+function createMarkup(htmlContents) {
+  if(!htmlContents){
+      return
+  }
+    return { __html: htmlContents };
 }
 
 const BlogDetail: NextPage<Props> = props => {
@@ -16,13 +24,19 @@ const BlogDetail: NextPage<Props> = props => {
         <title>{props.blog.title} | BLOGS</title>
       </Head>
       <h1 className="title">{props.blog.title}</h1>
+      <img src="" alt="" />
       <div className="item">
-        <p className="item__label">{props.blog.label}</p>
+        <ul>
+            {props.blog.label.split(',').map((item,index)=>{
+                return (<li key={index}>{item}</li>)
+            })}
+        </ul>
         <p className="item__description">{props.blog.description}</p>
+        <article dangerouslySetInnerHTML={createMarkup(props.blog.contents)} />
       </div>
-        <Link href="/blogs">
-            <a className="link">ブログトップへ</a>
-        </Link>
+      <Link href="/blogs">
+        <a className="link">ブログトップへ</a>
+      </Link>
     </>
   );
 };
