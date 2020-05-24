@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default class MyDocument extends Document<Props> {
-    static getInitialProps({renderPage}) {
+    static getStaticProps({renderPage}) {
         const sheet = new ServerStyleSheet();
 
         const page = renderPage(App => props =>

@@ -9,11 +9,11 @@ import Header from "../components/layouts/Header";
   ※ https://nextjs.org/docs/#custom-app
 */
 export default class MyApp extends App {
-  static async getInitialProps(ctx: any) {
+  static async getStaticProps(ctx: any) {
     let pageProps = {};
 
-    if (ctx.Component.getInitialProps) {
-      pageProps = await ctx.Component.getInitialProps(ctx);
+    if (ctx.Component.getStaticProps) {
+      pageProps = await ctx.Component.getStaticProps(ctx);
     }
 
     return { pageProps };
