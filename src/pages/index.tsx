@@ -5,11 +5,11 @@ import Header from "../components/layouts/Header";
 const Home: FC = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>BLOGS</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-      <Header/>
-    <div>Home</div>
+    <Header />
+    <div>TOP</div>
   </div>
 );
 

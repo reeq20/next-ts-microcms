@@ -11,10 +11,10 @@ interface Props {
 }
 
 function createMarkup(htmlContents) {
-  if(!htmlContents){
-      return
+  if (!htmlContents) {
+    return;
   }
-    return { __html: htmlContents };
+  return { __html: htmlContents };
 }
 
 const BlogDetail: NextPage<Props> = props => {
@@ -27,9 +27,9 @@ const BlogDetail: NextPage<Props> = props => {
       <img src="" alt="" />
       <div className="item">
         <ul>
-            {props.blog.label.split(',').map((item,index)=>{
-                return (<li key={index}>{item}</li>)
-            })}
+          {props.blog.label.split(",").map((item, index) => {
+            return <li key={index}>{item}</li>;
+          })}
         </ul>
         <p className="item__description">{props.blog.description}</p>
         <article dangerouslySetInnerHTML={createMarkup(props.blog.contents)} />
