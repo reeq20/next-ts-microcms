@@ -7,6 +7,11 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   body {
     background: #f2f2f8;
+    margin: 0;
+    padding: 0;
+    *{
+    box-sizing: border-box;
+    }
   }
 `;
 
@@ -30,15 +35,13 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-
-        <Container>
-          <GlobalStyle />
-          <Header />
-          <main>
-            <Component {...pageProps} />
-          </main>
-        </Container>
-
+      <Container>
+        <GlobalStyle />
+        <Header />
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </Container>
     );
   }
 }
