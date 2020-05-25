@@ -26,7 +26,7 @@ const Article = styled.article`
     max-width: 800px;
     width: 100%;
     padding: 56px 72px;
-    margin: 0 auto;
+    margin: 40px auto 120px;
     background: #fafafa;
     box-shadow: 0 6px 12px 1px rgba(50, 50, 120, 0.1);
 
@@ -34,13 +34,36 @@ const Article = styled.article`
       width: 100%;
       height: auto;
     }
-
+    .title {
+      color: #234556;
+    }
+    .date {
+      color: #b2b2ca;
+      font-size: 14px;
+    }
     .item {
+      color: #234556;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+      }
+      p,
       &__description {
         margin: 48px 0 40px;
         color: #454865;
         font-size: 16px;
         line-height: 2;
+      }
+      pre {
+        background: #ededf6;
+        color: #454865;
+        font-size: 15px;
+        line-height: 1.75;
+        padding: 16px 24px;
+        white-space: pre-wrap;
       }
     }
   }
@@ -65,9 +88,13 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
         <meta name="twitter:title" content={blog.title} />
         <meta name="twitter:description" content={blog.description} />
         <meta name="twitter:image" content={blog.image.url} />
-        <link rel="canonical" href={router.asPath} />
+        <link
+          rel="canonical"
+          href={`https://riku-sugawara.tech${router.asPath}`}
+        />
       </Head>
       <Article className="content">
+        <time className="date">{blog.date}</time>
         <h1 className="title">{blog.title}</h1>
         <img src={blog.image.url} alt="" />
         <div className="item">

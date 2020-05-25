@@ -6,4 +6,5 @@ export interface Blogs {
   image: { url: string };
   description: string;
   contents: any;
+  date: Date;
 }
