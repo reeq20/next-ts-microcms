@@ -9,6 +9,12 @@ const GlobalStyle = createGlobalStyle`
     background: #f2f2f8;
     margin: 0;
     padding: 0;
+    font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
     *{
     box-sizing: border-box;
     }
