@@ -1,6 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
+
+const Labels = (props: { label: string }) => {
+  return (
+    <LabelsWrap>
+      {props.label.split(",").map((props, index) => {
+        return <li key={index}>{props.trim()}</li>;
+      })}
+    </LabelsWrap>
+  );
+};
+
+
 const LabelsWrap = styled.ul`
   display: flex;
   justify-content: flex-start;
@@ -17,15 +29,5 @@ const LabelsWrap = styled.ul`
     font-size: 12px;
   }
 `;
-
-const Labels = (props: { label: string }) => {
-  return (
-    <LabelsWrap>
-      {props.label.split(",").map((props, index) => {
-        return <li key={index}>{props.trim()}</li>;
-      })}
-    </LabelsWrap>
-  );
-};
 
 export default Labels;

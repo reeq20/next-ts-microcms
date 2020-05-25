@@ -2,6 +2,13 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Header from "../components/layouts/Header";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #f2f2f8;
+  }
+`;
 
 /*
   カスタム共通処理
@@ -23,12 +30,15 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </Container>
+
+        <Container>
+          <GlobalStyle />
+          <Header />
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </Container>
+
     );
   }
 }

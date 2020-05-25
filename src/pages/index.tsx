@@ -4,6 +4,9 @@ import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import { Blogs } from "../interfaces";
 import React from "react";
+import styled from "styled-components";
+import IndexCard from "../components/ui/IndexCard";
+import Labels from "../components/ui/Labels";
 
 interface Props {
   blogs: Blogs[];
@@ -14,25 +17,59 @@ const Home: NextPage<Props> = ({ blogs }) => (
     <Head>
       <title>blogs</title>
     </Head>
-
-    <h1 className="title">RIC Blogs</h1>
-    <div>
+    <IndexList className="CardList">
       {blogs.map((blog, index) => (
-        <div className="item" key={index}>
-          <h2 className="item__title">{blog.title}</h2>
-          <ul>
-            {blog.label.split(",").map((item, index) => {
-              return <li key={index}>{item}</li>;
-            })}
-          </ul>
+        <li className="item" key={index}>
           <Link href="/[id]" as={`/${blog.id}`}>
-            <a className="item__link">詳細へ</a>
+            <a className="item__link">
+              <img src={blog.image.url} alt="" className="item__image" />
+              <span className="item__content">
+                <h2 className="item__title">{blog.title}</h2>
+                <Labels label={blog.label} />
+              </span>
+            </a>
           </Link>
-        </div>
+        </li>
       ))}
-    </div>
+    </IndexList>
   </>
 );
+
+const IndexList = styled.ul`
+  &.CardList {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    list-style: none;
+  }
+  .item {
+    background: #fff;
+    &__link {
+      box-sizing: border-box;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-decoration: none;
+      color: #234556;
+      &:visited {
+        color: #234556;
+      }
+    }
+    &__image {
+      width: 30%;
+      height: auto;
+    }
+    &__content {
+      padding: 12px 24px;
+    }
+    &__title {
+      margin-bottom: 40px;
+    }
+  }
+`;
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props;
