@@ -48,8 +48,7 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
       },
       "publisher": {
         "@type": "Organization",
-        "name": "${escape("RikuSugawara")}",
-        
+        "name": "${escape("RikuSugawara")}"
       },
       "datePublished": "${blog.createdAt}",
       "dateModified": "${blog.date}",
