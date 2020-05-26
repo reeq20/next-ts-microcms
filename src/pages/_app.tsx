@@ -3,12 +3,17 @@ import React from "react";
 import App from "next/app";
 import Header from "../components/layouts/Header";
 import { createGlobalStyle } from "styled-components";
+import Footer from "../components/layouts/Footer";
 
 const GlobalStyle = createGlobalStyle`
+html{
+height:100%;
+}
   body {
-    background: #f2f2f8;
+  min-height: 100%;
     margin: 0;
     padding: 0;
+    background: #f2f2f8;
     font-family: "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -18,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
     *{
     box-sizing: border-box;
     }
+  }
+  .Layout{
+  display: flex;
+  flex-direction: column;
+    
   }
 `;
 
@@ -43,10 +53,13 @@ export default class MyApp extends App {
     return (
       <>
         <GlobalStyle />
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
+        <div className="Layout">
+          <Header />
+          <main>
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </div>
       </>
     );
   }

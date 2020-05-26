@@ -5,6 +5,6 @@ export interface Blogs {
   label: string;
   image: { url: string };
   description: string;
-  contents: string;
+  contents: any;
   date: Date;
 }

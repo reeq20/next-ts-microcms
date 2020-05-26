@@ -17,9 +17,19 @@ const Article = styled.article`
     .title {
       color: #234556;
     }
-    .date {
+    .postDate {
       color: #b2b2ca;
       font-size: 14px;
+      .created,
+      .updated {
+        display: inline-block;
+        time {
+          padding-left: 4px;
+        }
+      }
+      .created {
+        margin-right: 16px;
+      }
     }
     .item {
       color: #234556;
@@ -30,14 +40,18 @@ const Article = styled.article`
       h5,
       h6 {
       }
+      h2 {
+        margin: 40px 0 24px;
+      }
       p {
         margin: 24px 0 24px;
         color: #454865;
         font-size: 16px;
         line-height: 2;
         strong {
-          color: #404079;
-          background: #d6d7e1;
+          //color: #404079;
+          color: #bd2e9e;
+          background: #e3e9f2;
           padding: 0 5px;
           display: inline-flex;
           justify-content: center;

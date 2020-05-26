@@ -20,8 +20,8 @@ function createMarkup(htmlContents) {
   return { __html: htmlContents };
 }
 
-function convertDate(date) {
-  return new Date(date).toLocaleDateString("ja").replace(/\//g, "-");
+function convertDate(date, replaceValue: string = "-") {
+  return new Date(date).toLocaleDateString("ja").replace(/\//g, replaceValue);
 }
 
 const BlogDetail: NextPage<Props> = ({ blog }) => {
@@ -29,7 +29,37 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
   return (
     <>
       <Head>
-        <title>{blog.title} | BLOGS</title>
+        <title>
+          {blog.title} | {process.env.BASE_TITLE}
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "headline": "${escape(blog.title)}",
+      "image": "${escape(blog.image.url)}",
+      "author": {
+        "@type": "Person",
+        "name": "${escape("RikuSugawara")}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "${escape("RikuSugawara")}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "${escape("/")}"
+        }
+      },
+      "datePublished": "${convertDate(blog.createdAt)}",
+      "dateModified": "${convertDate(blog.date)}",
+      "mainEntityOfPage": "https://example.com"
+    }`
+          }}
+        />
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.description} />
         <meta name="keywords" content={blog.label} />
@@ -52,17 +82,17 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
         <link rel="canonical" href={process.env.BASE_PATH + router.asPath} />
       </Head>
       <Article className="content">
-        <div className={`date`}>
+        <div className={`postDate`}>
           <span className={`created`}>
             作成日時
             <time dateTime={convertDate(blog.createdAt)}>
-              {convertDate(blog.createdAt)}
+              {convertDate(blog.createdAt, ".")}
             </time>
           </span>
           <span className={`updated`}>
             更新日時
             <time dateTime={convertDate(blog.date)}>
-              {convertDate(blog.date)}
+              {convertDate(blog.date, ".")}
             </time>
           </span>
         </div>

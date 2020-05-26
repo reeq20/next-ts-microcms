@@ -12,6 +12,7 @@ const nextConfig = {
     SECRET_KEY: process.env.SECRET_KEY,
     END_POINT: process.env.END_POINT,
     BASE_PATH: process.env.BASE_PATH,
+    BASE_TITLE: 'RIC BLOGS',
   }
 };
 
