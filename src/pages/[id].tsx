@@ -59,6 +59,7 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
         />
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.description} />
+        <meta name="description" content={blog.description} />
         <meta name="keywords" content={blog.label} />
         <meta property="og:type" content="article" />
         <meta
