@@ -1,6 +1,6 @@
 /* pages/_app.tsx */
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import Header from "../components/layouts/Header";
 import { createGlobalStyle } from "styled-components";
 
@@ -41,13 +41,13 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
         <GlobalStyle />
         <Header />
         <main>
           <Component {...pageProps} />
         </main>
-      </Container>
+      </>
     );
   }
 }
