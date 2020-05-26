@@ -49,14 +49,11 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
       "publisher": {
         "@type": "Organization",
         "name": "${escape("RikuSugawara")}",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "${escape("/")}"
-        }
+        
       },
-      "datePublished": "${convertDate(blog.createdAt)}",
-      "dateModified": "${convertDate(blog.date)}",
-      "mainEntityOfPage": "https://example.com"
+      "datePublished": "${blog.createdAt}",
+      "dateModified": "${blog.date}",
+      "mainEntityOfPage": "${escape(process.env.BASE_PATH + router.asPath)}"
     }`
           }}
         />

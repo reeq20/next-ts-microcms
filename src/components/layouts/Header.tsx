@@ -8,7 +8,7 @@ const Header: NextComponentType = () => {
     <>
       <HeaderWrap className={`Header`}>
         <h1 className="title">
-          <Link href={'/'}>
+          <Link href={"/"}>
             <a>RIC Blogs</a>
           </Link>
         </h1>
@@ -47,6 +47,13 @@ const HeaderWrap = styled.header`
     font-size: 16px;
     line-height: 1;
     margin: 0;
+    a {
+      color: #234556;
+      text-decoration: none;
+      &:visited {
+        color: #234556;
+      }
+    }
   }
   .Navigation {
     display: flex;
