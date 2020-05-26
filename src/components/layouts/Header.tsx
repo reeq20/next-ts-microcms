@@ -7,7 +7,11 @@ const Header: NextComponentType = () => {
   return (
     <>
       <HeaderWrap className={`Header`}>
-        <h1 className="title">RIC Blogs</h1>
+        <h1 className="title">
+          <Link href={'/'}>
+            <a>RIC Blogs</a>
+          </Link>
+        </h1>
         <nav className={`Navigation`}>
           <ul className={`NavigationList`}>
             <li>
@@ -35,8 +39,9 @@ const HeaderWrap = styled.header`
   height: 64px;
   padding: 8px 32px;
   margin-bottom: 80px;
-  box-shadow: 0px 2px 4px rgba(50, 50, 50, 0.2);
+  box-shadow: 0 2px 4px rgba(50, 50, 50, 0.2);
   box-sizing: border-box;
+  background: #fafafa;
   overflow: hidden;
   .title {
     font-size: 16px;

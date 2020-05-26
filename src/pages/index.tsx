@@ -1,12 +1,11 @@
-import Head from "next/head";
 import axios from "axios";
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import { Blogs } from "../interfaces";
 import React from "react";
 import styled from "styled-components";
-import IndexCard from "../components/ui/IndexCard";
 import Labels from "../components/ui/Labels";
+import Head from "next/head";
 
 interface Props {
   blogs: Blogs[];
@@ -15,7 +14,8 @@ interface Props {
 const Home: NextPage<Props> = ({ blogs }) => (
   <>
     <Head>
-      <title>blogs</title>
+      <title>HOME | {process.env.BASE_TITLE}</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
     </Head>
     <IndexList className="CardList">
       {blogs.map((blog, index) => (
