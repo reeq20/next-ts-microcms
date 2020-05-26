@@ -4,9 +4,9 @@ import axios from "axios";
 import Link from "next/link";
 import { Blogs } from "../interfaces";
 import React from "react";
-import styled from "styled-components";
 import Labels from "../components/ui/Labels";
 import { useRouter } from "next/router";
+import Article from "../components/style/Article";
 
 interface Props {
   blog: Blogs;
@@ -20,54 +20,9 @@ function createMarkup(htmlContents) {
   return { __html: htmlContents };
 }
 
-const Article = styled.article`
-  &.content {
-    box-sizing: border-box;
-    max-width: 800px;
-    width: 100%;
-    padding: 56px 72px;
-    margin: 40px auto 120px;
-    background: #fafafa;
-    box-shadow: 0 6px 12px 1px rgba(50, 50, 120, 0.1);
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-    .title {
-      color: #234556;
-    }
-    .date {
-      color: #b2b2ca;
-      font-size: 14px;
-    }
-    .item {
-      color: #234556;
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-      }
-      p,
-      &__description {
-        margin: 48px 0 40px;
-        color: #454865;
-        font-size: 16px;
-        line-height: 2;
-      }
-      pre {
-        background: #ededf6;
-        color: #454865;
-        font-size: 15px;
-        line-height: 1.75;
-        padding: 16px 24px;
-        white-space: pre-wrap;
-      }
-    }
-  }
-`;
+function convertDate(date) {
+  return new Date(date).toLocaleDateString("ja").replace(/\//g, "-");
+}
 
 const BlogDetail: NextPage<Props> = ({ blog }) => {
   const router = useRouter();
@@ -78,23 +33,39 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.description} />
         <meta name="keywords" content={blog.label} />
-        <meta property="og:type" content="blog" />
-        <meta property="og:url" content={blog.image.url} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={process.env.BASE_PATH + router.asPath}
+        />
         <meta property="og:image" content={blog.image.url} />
         <meta property="og:site_name" content={blog.title} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@fabrec_jp" />
-        <meta name="twitter:url" content={blog.image.url} />
+        <meta
+          name="twitter:url"
+          content={process.env.BASE_PATH + router.asPath}
+        />
         <meta name="twitter:title" content={blog.title} />
         <meta name="twitter:description" content={blog.description} />
         <meta name="twitter:image" content={blog.image.url} />
-        <link
-          rel="canonical"
-          href={`https://riku-sugawara.tech${router.asPath}`}
-        />
+        <link rel="canonical" href={process.env.BASE_PATH + router.asPath} />
       </Head>
       <Article className="content">
-        <time className="date">{blog.date}</time>
+        <div className={`date`}>
+          <span className={`created`}>
+            作成日時
+            <time dateTime={convertDate(blog.createdAt)}>
+              {convertDate(blog.createdAt)}
+            </time>
+          </span>
+          <span className={`updated`}>
+            更新日時
+            <time dateTime={convertDate(blog.date)}>
+              {convertDate(blog.date)}
+            </time>
+          </span>
+        </div>
         <h1 className="title">{blog.title}</h1>
         <img src={blog.image.url} alt="" />
         <div className="item">
