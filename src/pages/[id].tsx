@@ -48,7 +48,11 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
       },
       "publisher": {
         "@type": "Organization",
-        "name": "${escape("RikuSugawara")}"
+        "name": "${escape("RikuSugawara")}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "${escape("https://rikusugawara.net/_nuxt/img/0e7489c.svg")}"
+        }
       },
       "datePublished": "${blog.createdAt}",
       "dateModified": "${blog.date}",
