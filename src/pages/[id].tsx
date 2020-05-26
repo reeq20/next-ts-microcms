@@ -40,7 +40,7 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
     {
       "@context": "http://schema.org",
       "@type": "Article",
-      "headline": "${escape(blog.title)}",
+      "headline": "${escape(blog.title.slice(0,55))}",
       "image": "${escape(blog.image.url)}",
       "author": {
         "@type": "Person",
