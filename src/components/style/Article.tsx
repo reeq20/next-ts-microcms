@@ -50,7 +50,8 @@ const Article = styled.article`
         line-height: 2;
         strong {
           //color: #404079;
-          color: #bd2e9e;
+          //color: #bd2e9e;
+          color: #de129a;
           //background: #e3e9f2;
           background: #ededf6;
           padding: 0 10px;
@@ -60,7 +61,7 @@ const Article = styled.article`
           font-size: 14px;
           font-weight: normal;
           border-radius: 2px;
-          letter-spacing: 0.02em;
+          letter-spacing: 0.04em;
         }
         &.item__description {
           margin: 48px 0 56px;
