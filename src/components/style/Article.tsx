@@ -18,7 +18,8 @@ const Article = styled.article`
       color: #234556;
     }
     .postDate {
-      color: #b2b2ca;
+      //color: #b2b2ca;
+      color: #687387;
       font-size: 14px;
       .created,
       .updated {
@@ -49,9 +50,7 @@ const Article = styled.article`
         font-size: 16px;
         line-height: 2;
         strong {
-          //color: #404079;
-          //color: #bd2e9e;
-          color: #de129a;
+          color: #595979;
           //background: #e3e9f2;
           background: #ededf6;
           padding: 0 10px;
@@ -59,7 +58,7 @@ const Article = styled.article`
           justify-content: center;
           align-items: center;
           font-size: 14px;
-          font-weight: normal;
+          font-weight: 400;
           border-radius: 2px;
           letter-spacing: 0.04em;
         }
@@ -71,9 +70,9 @@ const Article = styled.article`
       }
 
       a {
-        color: #0a7eb8;
+        color: #065594;
         &:visited {
-          color: #0a7eb8;
+          color: #065594;
         }
       }
       pre {
