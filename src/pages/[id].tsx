@@ -55,7 +55,7 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
         }
       },
       "datePublished": "${blog.createdAt}",
-      "dateModified": "${blog.date}",
+      "dateModified": "${blog.updatedAt}",
       "mainEntityOfPage": "${escape(process.env.BASE_PATH + router.asPath)}"
     }`
           }}
@@ -92,8 +92,8 @@ const BlogDetail: NextPage<Props> = ({ blog }) => {
           </span>
           <span className={`updated`}>
             更新日時
-            <time dateTime={convertDate(blog.date)}>
-              {convertDate(blog.date, ".")}
+            <time dateTime={convertDate(blog.updatedAt)}>
+              {convertDate(blog.updatedAt, ".")}
             </time>
           </span>
         </div>

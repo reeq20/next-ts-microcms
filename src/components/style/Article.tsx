@@ -51,8 +51,9 @@ const Article = styled.article`
         strong {
           //color: #404079;
           color: #bd2e9e;
-          background: #e3e9f2;
-          padding: 0 5px;
+          //background: #e3e9f2;
+          background: #ededf6;
+          padding: 0 10px;
           display: inline-flex;
           justify-content: center;
           align-items: center;
@@ -69,9 +70,9 @@ const Article = styled.article`
       }
 
       a {
-        color: #309bb5;
+        color: #0a7eb8;
         &:visited {
-          color: #309bb5;
+          color: #0a7eb8;
         }
       }
       pre {
@@ -90,7 +91,7 @@ const Article = styled.article`
         font-size: 14px;
         line-height: 1.75;
         letter-spacing: 0.01em;
-        color: #707083;
+        color: #595979;
         background: #ededf6;
       }
     }
