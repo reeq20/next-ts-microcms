@@ -35,6 +35,7 @@ const HeaderWrap = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex: none;
   width: 100%;
   height: 64px;
   padding: 8px 32px;

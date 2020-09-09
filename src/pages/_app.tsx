@@ -10,10 +10,11 @@ html{
 height:100%;
 }
   body {
-  min-height: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    background: #f2f2f8;
+    //background: #f2f2f8;
+    background: #fafafd;
     font-family: "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -27,7 +28,8 @@ height:100%;
   .Layout{
   display: flex;
   flex-direction: column;
-    
+  justify-content: space-between;
+  height: 100vh;
   }
 `;
 

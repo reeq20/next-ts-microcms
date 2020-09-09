@@ -7,8 +7,8 @@ const Article = styled.article`
     width: 100%;
     padding: 56px 72px;
     margin: 40px auto 120px;
-    background: #fafafa;
-    box-shadow: 0 6px 12px 1px rgba(50, 50, 120, 0.1);
+    //background: #fafafa;
+    //box-shadow: 0 6px 12px 1px rgba(50, 50, 120, 0.1);
 
     img {
       width: 100%;
@@ -68,6 +68,14 @@ const Article = styled.article`
           border-bottom: 1px solid #d2d2da;
         }
       }
+      ul{
+      padding:0 8px;
+      margin: 16px 0 16px;
+      li{
+      line-height: 2.4;
+      list-style: none;
+      }
+      }
 
       a {
         color: #065594;
@@ -84,6 +92,13 @@ const Article = styled.article`
         line-height: 1.75;
         padding: 16px 24px;
         white-space: pre-wrap;
+      }
+      code{
+      background: #dde;
+      padding:3px 12px;
+      margin-right: 3px;
+      border-radius:4px;
+      border:  1px solid #ccd;
       }
       blockquote {
         padding: 20px 32px;

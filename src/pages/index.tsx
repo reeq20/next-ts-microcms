@@ -44,6 +44,7 @@ const IndexList = styled.ul`
   }
   .item {
     background: #fff;
+    margin-bottom: 40px;
     &__link {
       box-sizing: border-box;
       display: flex;
