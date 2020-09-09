@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ blogs }) => (
         <li className="item" key={index}>
           <Link href="/[id]" as={`/${blog.id}`}>
             <a className="item__link">
-              <img src={blog.image.url} alt="" className="item__image" />
+              <img src={blog.image.url ? blog.image.url : ''} alt="" className="item__image" />
               <span className="item__content">
                 <h2 className="item__title">{blog.title}</h2>
                 <Labels label={blog.label} />
