@@ -8,7 +8,7 @@ const nextConfig = {
   },
   exportTrailingSlash: true,
   env: {
-    API_KEY: process.env.API_KEY,
+    API_KEY: process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY,
     SECRET_KEY: process.env.SECRET_KEY,
     END_POINT: process.env.END_POINT,
     BASE_PATH: 'https://riku-sugawara.tech',
