@@ -132,8 +132,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
     // const res = await axios.get(process.env.NEXT_PUBLIC_END_POINT + "blog/", key);
     const res = await axios.get(
-      process.env.NEXT_PUBLIC_END_POINT + "blog/" + params?.id,
-      key
+        process.env.NEXT_PUBLIC_END_POINT + "blog/" + params?.id,
+        key
     );
 
     // console.log('res')
