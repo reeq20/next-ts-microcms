@@ -1,35 +1,20 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import React from "react";
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import React from 'react'
 
-type Props = {
-  styleTags: any;
-};
+type Props = {}
 
-export default class MyDocument extends Document<Props> {
-  static getStaticProps({ renderPage }) {
-    const sheet = new ServerStyleSheet();
-
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />)
-    );
-
-    const styleTags = sheet.getStyleElement();
-
-    return { ...page, styleTags };
-  }
-
-  render() {
-    return (
-      <Html lang="ja">
-        <Head>
-          {this.props.styleTags}
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+class Document extends NextDocument<Props> {
+    render() {
+        return (
+            <Html>
+                <Head><title>RicBlog</title></Head>
+                <body>
+                <Main />
+                <NextScript />
+                </body>
+            </Html>
+        )
+    }
 }
+
+export default Document

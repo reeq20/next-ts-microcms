@@ -20,7 +20,7 @@ const Home: NextPage<Props> = ({ blogs }) => (
     <IndexList className="CardList">
       {blogs.map((blog, index) => (
         <li className="item" key={index}>
-          <Link href="/[id]" as={`/${blog.id}`}>
+          <Link href={`/${blog.id}`} as={`/${blog.id}`}>
             <a className="item__link">
               <img src={blog.image.url ? blog.image.url : ''} alt="" className="item__image" />
               <span className="item__content">
@@ -76,9 +76,9 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props;
 }> => {
   const key = {
-    headers: { "X-API-KEY": process.env.API_KEY }
+    headers: { "X-API-KEY": process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY }
   };
-  const res = await axios.get(process.env.END_POINT + "blog/?limit=9999", key);
+  const res = await axios.get(process.env.NEXT_PUBLIC_END_POINT + "blog/", key);
 
   const data: Array<Blogs> = await res.data.contents;
   return {
